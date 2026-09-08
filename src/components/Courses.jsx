@@ -1,6 +1,10 @@
+import { useState } from "react";
 import CourseCard from "./CourseCard";
+import Search from "../components/search";
 
 function Courses() {
+  const [search, setSearch] = useState("");
+
   const courseList = [
     {
       category: "Frontend",
@@ -34,11 +38,17 @@ function Courses() {
     },
   ];
 
+  const filteredCourses = courseList.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase())
+  );
+
   return (
     <div style={{ padding: "30px", maxWidth: "1000px", margin: "auto" }}>
       <h2>Available courses</h2>
 
-      {courseList.length === 0 ? (
+      <Search value={search} onChange={(e) => setSearch(e.target.value)} />
+
+      {filteredCourses.length === 0 ? (
         <p style={{ color: "#64683b" }}>No courses Available</p>
       ) : (
         <div
@@ -49,8 +59,8 @@ function Courses() {
             marginTop: "20px",
           }}
         >
-          {courseList.map((course) => {
-           return  <div key={`${course.title}-${course.instructor}`}>
+          {filteredCourses.map((course) => (
+            <div key={`${course.title}-${course.instructor}`}>
               {course.isFeatured && (
                 <span style={{ color: "yellow" }}>Featured</span>
               )}
@@ -61,7 +71,7 @@ function Courses() {
                 price={course.price}
               />
             </div>
-})}
+          ))}
         </div>
       )}
     </div>
