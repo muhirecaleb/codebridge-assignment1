@@ -16,7 +16,7 @@ const Home = () => {
       <main>
         <section className="welcome-section">
           <p className="eyebrow">{platformName}</p>
-          <h1>Yo yr welcome pal</h1>
+          <h1>You are welcome !</h1>
           <p className="slogan">{platformSlogan}</p>
           <Banner />
         </section>
