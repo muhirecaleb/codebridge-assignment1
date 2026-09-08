@@ -25,10 +25,8 @@ const Home = () => {
             <p className="eyebrow">Learn by building</p>
             <h2 id="catalog-heading">Featured courses</h2>
           </div>
-          <div className="course-grid">
+          
            <Courses />
-
-          </div>
         </section>
       </main>
       <Footer currentYear={currentYear} />

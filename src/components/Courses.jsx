@@ -49,9 +49,8 @@ function Courses() {
             marginTop: "20px",
           }}
         >
-          {/* Implicit return with parenthesis () instead of curly braces {} */}
-          {courseList.map((course) => (
-            <div key={`${course.title}-${course.instructor}`}>
+          {courseList.map((course) => {
+           return  <div key={`${course.title}-${course.instructor}`}>
               {course.isFeatured && (
                 <span style={{ color: "yellow" }}>Featured</span>
               )}
@@ -62,7 +61,7 @@ function Courses() {
                 price={course.price}
               />
             </div>
-          ))}
+})}
         </div>
       )}
     </div>
