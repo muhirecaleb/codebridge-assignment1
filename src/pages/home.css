@@ -12,7 +12,7 @@ main,
   margin: 0 auto;
 }
 
-.site-header {
+.site-header {  
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -21,7 +21,7 @@ main,
 }
 
 .brand,
-.site-header a {
+.site-header a {  
   color: inherit;
   text-decoration: none;
 }
@@ -182,6 +182,18 @@ h1 {
 
 .footer p {
   margin-bottom: 0;
+}
+
+.featured-badge {
+  display: inline-block;
+  margin-top: 12px;
+  padding: 4px 8px;
+  background-color: #b54d35;
+  color: #fff;
+  font-size: 0.75rem;
+  font-weight: bold;
+  text-transform: uppercase;
+  border-radius: 4px;
 }
 
 @media (max-width: 700px) {

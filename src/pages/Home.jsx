@@ -43,12 +43,7 @@ const Home = () => {
               price={69}
               isAvailable={false}
             />
-            <CourseCard
-              title="Laravel"
-              category="Backend Development"
-              price={80}
-              isAvailable={false}
-            />
+
           </div>
         </section>
       </main>
