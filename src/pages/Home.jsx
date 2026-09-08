@@ -3,6 +3,7 @@ import Banner from "../components/Banner";
 import CourseCard from "../components/CourseCard";
 import Footer from "../components/Footer";
 import Header from "../components/Header";
+import Courses from "../components/Courses";
 
 const Home = () => {
   const platformName = "CodeBridge Academy";
@@ -25,24 +26,7 @@ const Home = () => {
             <h2 id="catalog-heading">Featured courses</h2>
           </div>
           <div className="course-grid">
-            <CourseCard
-              title="Modern JavaScript"
-              category="Frontend Development"
-              price={49}
-              isAvailable={true}
-            />
-            <CourseCard
-              title="React Fundamentals"
-              category="UI Engineering"
-              price={59}
-              isAvailable={true}
-            />
-            <CourseCard
-              title="Node.js APIs"
-              category="Backend Development"
-              price={69}
-              isAvailable={false}
-            />
+           <Courses />
 
           </div>
         </section>
