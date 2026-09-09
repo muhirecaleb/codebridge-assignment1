@@ -6,7 +6,8 @@ const Header = () => {
       </a>
       <nav aria-label="Main navigation">
         <a href="#catalog-heading">Catalog</a>
-        <a href="#footer">About</a>
+        <a href="/login">Login</a>
+        <a href="/register">Register</a>
       </nav>
     </header>
   );
