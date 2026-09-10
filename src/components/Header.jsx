@@ -1,13 +1,15 @@
+import { Link } from "react-router-dom"
+
 const Header = () => {
   return (
     <header className="site-header">
-      <a className="brand" href="/">
+      <Link className="brand" path="/">
         CodeBridge Academy
-      </a>
+      </Link>
       <nav aria-label="Main navigation">
-        <a href="#catalog-heading">Catalog</a>
-        <a href="/login">Login</a>
-        <a href="/register">Register</a>
+       <Link to="/catalog-heading">Catalog</Link>
+       <Link to="/login">Login</Link>
+       <Link to="/register">Register</Link>
       </nav>
     </header>
   );

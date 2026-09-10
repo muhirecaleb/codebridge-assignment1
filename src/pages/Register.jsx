@@ -1,4 +1,6 @@
-import "./auth.css";
+import './auth.css';
+import { Link } from "react-router-dom";
+
 
 const Register = () => {
   return (
@@ -22,8 +24,8 @@ const Register = () => {
         </form>
       </section>
       <nav className="auth-links" aria-label="Account navigation">
-        <a href="/login">Already have an account?</a>
-        <a href="/">Back to home</a>
+        <Link to="/login">Already have an account?</Link>
+        <Link to="/">Back to home</Link>
       </nav>
     </main>
   );

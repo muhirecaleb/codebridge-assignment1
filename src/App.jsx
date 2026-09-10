@@ -1,16 +1,16 @@
+import { Routes, Route } from "react-router-dom";
 import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 
 function App() {
-  const currentPath = window.location.pathname;
-
   return (
-    <div>
-      {currentPath === "/login" && <Login />}
-      {currentPath === "/register" && <Register />}
-      {currentPath !== "/login" && currentPath !== "/register" && <Home />}
-    </div>
+      <Routes>
+        <Route path="/" element={<Home />} />
+        <Route path="/login" element={<Login />} />
+        <Route path="/register" element={<Register />} />
+      </Routes>
+    
   );
 }
 
