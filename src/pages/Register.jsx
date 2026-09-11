@@ -1,13 +1,12 @@
-
-import { useState } from 'react';
-import './auth.css';
-import { Link, useNavigate } from 'react-router-dom';
+import { useState } from "react";
+import "./auth.css";
+import { Link, useNavigate } from "react-router-dom";
 
 const Register = () => {
   const [formData, setFormData] = useState({
-    fullName: '',
-    email: '',
-    password: '',
+    fullName: "",
+    email: "",
+    password: "",
   });
 
   const navigate = useNavigate();
@@ -26,19 +25,22 @@ const Register = () => {
 
     // Basic validation
     if (!formData.fullName || !formData.email || !formData.password) {
-      alert('Please fill in all fields.');
+      alert("Please fill in all fields.");
       return;
     }
 
     if (formData.password.length < 6) {
-      alert('Password must be at least 6 characters.');
+      alert("Password must be at least 6 characters.");
       return;
     }
 
-    console.log('Registration data:', formData);
+    const savedUser = {
+      name: formData.fullName.trim(),
+      email: formData.email.trim(),
+    };
 
-
-    navigate('/Dashboard');
+    localStorage.setItem("codebridgeUser", JSON.stringify(savedUser));
+    navigate("/dashboard");
   };
 
   return (

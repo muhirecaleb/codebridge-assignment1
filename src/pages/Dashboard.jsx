@@ -1,17 +1,48 @@
-import React from 'react'
-import { useState } from 'react'
+import { useEffect, useState } from "react";
 
 const Dashboard = () => {
     const [user,setUser] = useState({
-        name: 'anelka',
-        email: 'iganzeanelka12@gmail.com',
+        name: 'Mugabo',
+        email: 'mugabo@gmail.com',
     })
   return (
-    <div>
-        <h2>{user.name }</h2>
-        <h2>{user.email }</h2>
-    </div>
-  )
-}
+    <main className="dashboard-page">
+      <section className="dashboard-card">
+        <div className="dashboard-header">
+          <div>
+            <p className="dashboard-label">Welcome back</p>
+            <h1>{user.name}</h1>
+          </div>
+          <span className="status-badge">Active</span>
+        </div>
 
-export default Dashboard
+        <div className="profile-box">
+          <p className="profile-title">Profile</p>
+          <p>
+            <strong>Name:</strong> {user.name}
+          </p>
+          <p>
+            <strong>Email:</strong> {user.email}
+          </p>
+        </div>
+
+        <div className="dashboard-grid">
+          <div className="metric-card">
+            <span>Courses</span>
+            <strong>0</strong>
+          </div>
+          <div className="metric-card">
+            <span>Progress</span>
+            <strong>0%</strong>
+          </div>
+          <div className="metric-card">
+            <span>Next lesson</span>
+            <strong>—</strong>
+          </div>
+        </div>
+      </section>
+    </main>
+  );
+};
+
+export default Dashboard;

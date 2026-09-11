@@ -8,6 +8,7 @@ const Navbar = () => {
       </Link>
       <nav aria-label="Main navigation" className="main-nav">
         <Link to="/catalog-heading">Catalog</Link>
+        <Link to="/blog">Blog</Link>
         <Link to="/login">Login</Link>
         <Link to="/register">Register</Link>
       </nav>
