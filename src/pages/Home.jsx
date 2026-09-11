@@ -1,9 +1,8 @@
 import "./home.css";
 import Banner from "../components/Banner";
-import CourseCard from "../components/CourseCard";
 import Footer from "../components/Footer";
-import Header from "../components/Header";
 import Courses from "../components/Courses";
+import Navbar from "../components/Navbar";
 
 const Home = () => {
   const platformName = "CodeBridge Academy";
@@ -12,7 +11,7 @@ const Home = () => {
 
   return (
     <div className="home">
-      <Header />
+      <Navbar />
       <main>
         <section className="welcome-section">
           <p className="eyebrow">{platformName}</p>
