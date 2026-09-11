@@ -3,8 +3,8 @@ import { useState } from 'react'
 
 const Dashboard = () => {
     const [user,setUser] = useState({
-        name: 'Mugabo',
-        email: 'mugabo@gmail.com',
+        name: 'anelka',
+        email: 'iganzeanelka12@gmail.com',
     })
   return (
     <div>
