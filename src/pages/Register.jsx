@@ -38,7 +38,7 @@ const Register = () => {
     console.log('Registration data:', formData);
 
 
-    navigate('/');
+    navigate('/Dashboard');
   };
 
   return (
