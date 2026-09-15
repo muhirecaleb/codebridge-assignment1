@@ -1,24 +1,10 @@
 import { useEffect, useState } from "react";
 
 const Dashboard = () => {
-  const [user, setUser] = useState({
-    name: "Guest",
-    email: "No email registered",
-  });
-
-  useEffect(() => {
-    const savedUser = JSON.parse(
-      localStorage.getItem("codebridgeUser") || "null",
-    );
-
-    if (savedUser) {
-      setUser({
-        name: savedUser.name || "Guest",
-        email: savedUser.email || "No email registered",
-      });
-    }
-  }, []);
-
+    const [user,setUser] = useState({
+        name: 'Mugabo',
+        email: 'mugabo@gmail.com',
+    })
   return (
     <main className="dashboard-page">
       <section className="dashboard-card">
