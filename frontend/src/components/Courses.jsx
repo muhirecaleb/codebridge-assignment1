@@ -1,45 +1,19 @@
+import { useEffect } from "react";
 import { useState } from "react";
 import CourseCard from "./CourseCard";
 import Search from "../components/search";
+import { useCourseStore } from "../store/courseStore";
 
 function Courses() {
+  const { getCourses, courses } = useCourseStore();
   const [search, setSearch] = useState("");
 
-  const courseList = [
-    {
-      category: "Frontend",
-      title: "React Foundamentals",
-      instructor: "Kevin",
-      price: 29.99,
-    },
-    {
-      category: "Backend",
-      title: "Nodejs",
-      instructor: "Peter",
-      price: 29.99,
-    },
-    {
-      category: "Frontend",
-      title: "React Foundamentals",
-      instructor: "Muhashyi",
-      price: 29.99,
-    },
-    {
-      category: "Database",
-      title: "Database foundamental",
-      instructor: "Kalisa",
-      price: 29.99,
-    },
-    {
-      category: "Languages",
-      title: "English",
-      instructor: "Mugisha",
-      price: 44.99,
-    },
-  ];
+  useEffect(() => {
+    getCourses();
+  }, [getCourses]);
 
-  const filteredCourses = courseList.filter((item) =>
-    item.title.toLowerCase().includes(search.toLowerCase())
+  const filteredCourses = courses.filter((item) =>
+    item.title.toLowerCase().includes(search.toLowerCase()),
   );
 
   return (
@@ -60,14 +34,13 @@ function Courses() {
           }}
         >
           {filteredCourses.map((course) => (
-            <div key={`${course.title}-${course.instructor}`}>
+            <div key={course.id}>
               {course.isFeatured && (
                 <span style={{ color: "yellow" }}>Featured</span>
               )}
               <CourseCard
                 title={course.title}
                 category={course.category}
-                instructor={course.instructor}
                 price={course.price}
               />
             </div>
