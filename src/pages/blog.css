@@ -195,6 +195,32 @@
   font-size: 1.55rem;
 }
 
+.readmore {
+  width: max-content;
+  display: inline-block;
+  margin-top: 12px;
+  color: #1d2b2a;
+  font:
+    700 0.85rem/1.2 Arial,
+    sans-serif;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+}
+
+.readmoreH{
+  font-size: 1.2rem;
+}
+
+.blog-pagee {
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #f5f1e8;
+  color: #1d2b2a;
+  font-family: Georgia, "Times New Roman", serif;
+}
+
 @media (max-width: 760px) {
   .blog-shell {
     width: min(100% - 32px, 560px);

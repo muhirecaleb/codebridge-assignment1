@@ -2,56 +2,35 @@ import Navbar from "../components/Navbar";
 import Footer from "../components/Footer";
 import PostCard from "../components/PostCard";
 import "./blog.css";
+import axios from "axios";
+import { useEffect, useState } from "react";
 
-const posts = [
-  {
-    category: "Frontend",
-    title: "The quiet power of understanding the browser",
-    excerpt:
-      "A practical way to think about HTML, CSS, and JavaScript as one system before reaching for another library.",
-    author: "Maya Patel",
-    readTime: "6 min",
-    slug: "understanding-the-browser",
-    coverClass: "cover-syntax",
-    coverMark: "</>",
-  },
-  {
-    category: "Career",
-    title: "Build a portfolio that tells one clear story",
-    excerpt:
-      "Your projects do more work when each one shows how you think, what you solved, and what you learned.",
-    author: "Kevin Niyonzima",
-    readTime: "4 min",
-    slug: "portfolio-that-tells-a-story",
-    coverClass: "cover-career",
-    coverMark: "01",
-  },
-  {
-    category: "Practice",
-    title: "A kinder workflow for debugging",
-    excerpt:
-      "Replace guesswork with a small repeatable loop that makes difficult bugs feel observable and solvable.",
-    author: "Peter Uwase",
-    readTime: "5 min",
-    slug: "a-kinder-debugging-workflow",
-    coverClass: "cover-debug",
-    coverMark: "?",
-  },
-  {
-    category: "Community",
-    title: "Why learning in public compounds",
-    excerpt:
-      "Small notes, honest questions, and useful demos can turn a solo learning habit into a real network.",
-    author: "Maya Patel",
-    readTime: "3 min",
-    slug: "learning-in-public",
-    coverClass: "cover-team",
-    coverMark: "+",
-  },
-];
+const fetchPosts = async () => {
+  const response = await axios.get('https://jsonplaceholder.typicode.com/posts');
+  return response.data;
+};
 
 const Blog = () => {
+  const [posts, setPosts] = useState([]);
+
+  useEffect(() => {
+    const loadPosts = async () => {
+      try {
+        const data = await fetchPosts();
+        setPosts(data);
+      } catch (error) {
+        console.error("Failed to load posts:", error);
+      }
+    };
+
+    loadPosts();
+  }, []);
+
   const currentYear = new Date().getFullYear();
+
+  if (posts.length === 0) {
+    return <div className="loading">Loading journal entries...</div>;
+  }
 
   return (
     <div className="blog-page">
@@ -68,10 +47,7 @@ const Blog = () => {
           </p>
         </header>
 
-        <section
-          className="featured-post"
-          aria-labelledby="featured-post-heading"
-        >
+        <section className="featured-post" aria-labelledby="featured-post-heading">
           <PostCard post={posts[0]} featured />
         </section>
 
@@ -82,7 +58,7 @@ const Blog = () => {
           </div>
           <div className="post-grid">
             {posts.slice(1).map((post) => (
-              <PostCard key={post.slug} post={post} />
+              <PostCard key={post.id} post={post} />
             ))}
           </div>
         </section>

@@ -4,6 +4,7 @@ import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
 import Post from "./pages/Post";
+import Readmore from "./pages/Readmore";
 
 function App() {
   return (
@@ -12,7 +13,8 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
-      <Route path="/blog/*" element={<Post />} />
+      <Route path="/blog" element={<Post />} />
+      <Route path="/blog/:id" element={<Readmore />} />
     </Routes>
   );
 }
