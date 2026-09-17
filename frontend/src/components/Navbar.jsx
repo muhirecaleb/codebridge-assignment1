@@ -1,16 +1,37 @@
-import { Link } from "react-router-dom";
+import { useState } from "react";
+import { Link, useNavigate } from "react-router-dom";
+import { getCurrentUser, logout } from "../api/auth";
 
 const Navbar = () => {
+  const [user, setUser] = useState(getCurrentUser);
+  const navigate = useNavigate();
+
+  const handleLogout = () => {
+    logout();
+    setUser(null);
+    navigate("/");
+  };
+
   return (
     <header className="site-header">
       <Link className="brand" to="/">
         CodeBridge Academy
       </Link>
       <nav aria-label="Main navigation" className="main-nav">
-        <Link to="/catalog-heading">Catalog</Link>
         <Link to="/blog">Blog</Link>
-        <Link to="/login">Login</Link>
-        <Link to="/register">Register</Link>
+        {user ? (
+          <>
+            <Link to="/dashboard">Dashboard</Link>
+            <button type="button" onClick={handleLogout}>
+              Logout
+            </button>
+          </>
+        ) : (
+          <>
+            <Link to="/login">Login</Link>
+            <Link to="/register">Register</Link>
+          </>
+        )}
       </nav>
     </header>
   );

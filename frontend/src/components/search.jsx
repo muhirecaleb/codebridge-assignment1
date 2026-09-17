@@ -1,5 +1,3 @@
-import React from 'react'
-import { useState } from 'react'
 function Search({ value, onChange }) {
   return (
     <input
@@ -18,4 +16,3 @@ function Search({ value, onChange }) {
 }
 
 export default Search;
-

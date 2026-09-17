@@ -35,7 +35,7 @@ const Register = () => {
         password: formData.password,
       });
       saveAuth(data);
-      navigate("/dashboard");
+      navigate("/");
     } catch (requestError) {
       setError(getApiErrorMessage(requestError));
     } finally {

@@ -21,7 +21,7 @@ const Login = () => {
     try {
       const { data } = await login(formData);
       saveAuth(data);
-      navigate("/dashboard");
+      navigate("/");
     } catch (requestError) {
       setError(getApiErrorMessage(requestError));
     } finally {
