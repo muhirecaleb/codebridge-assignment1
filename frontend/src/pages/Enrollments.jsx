@@ -28,7 +28,9 @@ const Enrollments = () => {
 
     try {
       await dropCourse(courseId);
-      setCourses((current) => current.filter((course) => course.id !== courseId));
+      setCourses((current) =>
+        current.filter((course) => course.id !== courseId),
+      );
     } catch (requestError) {
       setError(getApiErrorMessage(requestError));
     } finally {
@@ -51,15 +53,24 @@ const Enrollments = () => {
           </span>
         </header>
 
-        {error && <p className="inline-error" role="alert">{error}</p>}
+        {error && (
+          <p className="inline-error" role="alert">
+            {error}
+          </p>
+        )}
 
         {isLoading ? (
           <p className="empty-state">Loading your enrollments...</p>
         ) : courses.length === 0 ? (
           <section className="enrollments-empty">
             <h2>No enrollments yet</h2>
-            <p>Choose a course from the home page to start building your learning plan.</p>
-            <a className="button" href="/">Browse courses</a>
+            <p>
+              Choose a course from the home page to start building your learning
+              plan.
+            </p>
+            <a className="button" href="/">
+              Browse courses
+            </a>
           </section>
         ) : (
           <div className="enrollment-list enrollment-page-list">
@@ -68,7 +79,10 @@ const Enrollments = () => {
                 <div className="enrollment-item-content">
                   <span className="course-category">{course.category}</span>
                   <h2>{course.title}</h2>
-                  <p>{course.description || "Continue learning at your own pace."}</p>
+                  <p>
+                    {course.description ||
+                      "Continue learning at your own pace."}
+                  </p>
                   <small>
                     Enrolled {new Date(course.enrolled_at).toLocaleDateString()}
                   </small>

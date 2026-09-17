@@ -3,6 +3,7 @@ import Home from "./pages/Home";
 import Login from "./pages/Login";
 import Register from "./pages/Register";
 import Dashboard from "./pages/Dashboard";
+import Enrollments from "./pages/Enrollments";
 import Post from "./pages/Post";
 import Readmore from "./pages/Readmore";
 
@@ -13,6 +14,7 @@ function App() {
       <Route path="/login" element={<Login />} />
       <Route path="/register" element={<Register />} />
       <Route path="/dashboard" element={<Dashboard />} />
+      <Route path="/enrollments" element={<Enrollments />} />
       <Route path="/blog" element={<Post />} />
       <Route path="/blog/:id" element={<Readmore />} />
     </Routes>
