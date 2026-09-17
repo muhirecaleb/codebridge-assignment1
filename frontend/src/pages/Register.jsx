@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./auth.css";
 import { Link, useNavigate } from "react-router-dom";
+import { getApiErrorMessage, register, saveAuth } from "../api/auth";
 
 const Register = () => {
   const [formData, setFormData] = useState({
@@ -8,6 +9,8 @@ const Register = () => {
     email: "",
     password: "",
   });
+  const [error, setError] = useState("");
+  const [isSubmitting, setIsSubmitting] = useState(false);
 
   const navigate = useNavigate();
 
@@ -20,27 +23,24 @@ const Register = () => {
     });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
+    setError("");
+    setIsSubmitting(true);
 
-    // Basic validation
-    if (!formData.fullName || !formData.email || !formData.password) {
-      alert("Please fill in all fields.");
-      return;
+    try {
+      const { data } = await register({
+        full_name: formData.fullName,
+        email: formData.email,
+        password: formData.password,
+      });
+      saveAuth(data);
+      navigate("/dashboard");
+    } catch (requestError) {
+      setError(getApiErrorMessage(requestError));
+    } finally {
+      setIsSubmitting(false);
     }
-
-    if (formData.password.length < 6) {
-      alert("Password must be at least 6 characters.");
-      return;
-    }
-
-    const savedUser = {
-      name: formData.fullName.trim(),
-      email: formData.email.trim(),
-    };
-
-    localStorage.setItem("codebridgeUser", JSON.stringify(savedUser));
-    navigate("/dashboard");
   };
 
   return (
@@ -85,11 +85,18 @@ const Register = () => {
             placeholder="Create a password"
             value={formData.password}
             onChange={handleChange}
-            minLength={6}
+            minLength={8}
             required
           />
+          {error && (
+            <p className="auth-error" role="alert">
+              {error}
+            </p>
+          )}
 
-          <button type="submit">Register</button>
+          <button type="submit" disabled={isSubmitting}>
+            {isSubmitting ? "Creating account..." : "Register"}
+          </button>
         </form>
       </section>
 
