@@ -90,6 +90,15 @@ Copy the returned JWT and send:
 
 `GET /api/auth/profile` — protected.
 
+### Administrator
+
+The database setup creates the administrator account:
+
+- Email: `admin@gmail.com`
+- Password: `admin123`
+
+Administrators can open the frontend `/admin` page to view academy statistics, review recent enrollments, create courses, and delete courses. Course creation and deletion plus the admin dashboard API require an authenticated JWT with the `admin` role.
+
 ### Courses
 
 `GET /api/courses`

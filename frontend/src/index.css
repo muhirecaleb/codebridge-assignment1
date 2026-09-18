@@ -70,6 +70,175 @@ a {
   background: #f3f6fb;
 }
 
+.admin-shell {
+  min-height: 100vh;
+  background: #f5f1e8;
+}
+
+.admin-page {
+  width: min(1120px, calc(100% - 48px));
+  margin: 0 auto;
+  padding: 4.5rem 0 6rem;
+}
+
+.admin-heading {
+  max-width: 700px;
+  margin-bottom: 2.25rem;
+}
+.admin-heading h1 {
+  margin: 0.4rem 0 0.8rem;
+  color: #1d2b2a;
+  font:
+    700 clamp(2.5rem, 6vw, 4.8rem)/0.98 Georgia,
+    "Times New Roman",
+    serif;
+}
+.admin-heading p:not(.dashboard-label) {
+  color: #586563;
+  line-height: 1.5;
+}
+.admin-stats {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.admin-stat {
+  padding: 1.35rem;
+  background: #fffdf8;
+  border: 1px solid #d2d9ce;
+}
+.admin-stat span {
+  display: block;
+  color: #586563;
+  font:
+    700 0.78rem Arial,
+    sans-serif;
+  text-transform: uppercase;
+  letter-spacing: 0.06em;
+}
+.admin-stat strong {
+  display: block;
+  margin-top: 0.5rem;
+  color: #1d2b2a;
+  font:
+    700 2.2rem Georgia,
+    serif;
+}
+.admin-notice {
+  padding: 0.8rem 1rem;
+  background: #d9e4d5;
+  color: #34735c;
+}
+.admin-layout {
+  display: grid;
+  grid-template-columns: minmax(250px, 0.8fr) minmax(0, 1.2fr);
+  gap: 1.25rem;
+  margin-top: 1rem;
+}
+.admin-section {
+  padding: 1.5rem;
+  background: #fffdf8;
+  border: 1px solid #d2d9ce;
+}
+.admin-section h2 {
+  color: #1d2b2a;
+  font:
+    700 1.7rem Georgia,
+    serif;
+}
+.admin-form {
+  display: grid;
+  gap: 0.55rem;
+}
+.admin-form label {
+  color: #586563;
+  font:
+    700 0.78rem Arial,
+    sans-serif;
+}
+.admin-form input,
+.admin-form textarea {
+  width: 100%;
+  padding: 0.75rem;
+  border: 1px solid #c8d0c5;
+  background: #fff;
+  color: #1d2b2a;
+  font: inherit;
+}
+.admin-form button {
+  margin-top: 0.5rem;
+  padding: 0.8rem 1rem;
+  border: 0;
+  background: #1d2b2a;
+  color: white;
+  cursor: pointer;
+  font-weight: 700;
+}
+.admin-course-list,
+.activity-list {
+  display: grid;
+  gap: 0.75rem;
+}
+.admin-course {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  padding: 1rem 0;
+  border-top: 1px solid #d2d9ce;
+}
+.admin-course h3 {
+  margin: 0.25rem 0;
+  color: #1d2b2a;
+}
+.admin-course p {
+  margin: 0;
+  color: #586563;
+  font-size: 0.9rem;
+  line-height: 1.4;
+}
+.button-secondary {
+  padding: 0.65rem 0.8rem;
+  border: 1px solid #b54d35;
+  background: transparent;
+  color: #b54d35;
+  cursor: pointer;
+  font-weight: 700;
+}
+.admin-activity {
+  margin-top: 1.25rem;
+}
+.activity-row {
+  display: grid;
+  grid-template-columns: 1fr 1.5fr auto;
+  gap: 1rem;
+  padding: 0.9rem 0;
+  border-top: 1px solid #d2d9ce;
+  color: #586563;
+}
+.activity-row strong {
+  color: #1d2b2a;
+}
+.activity-row small {
+  color: #7b8580;
+}
+
+@media (max-width: 760px) {
+  .admin-page {
+    width: min(100% - 32px, 560px);
+    padding-top: 3rem;
+  }
+  .admin-stats,
+  .admin-layout {
+    grid-template-columns: 1fr;
+  }
+  .activity-row {
+    grid-template-columns: 1fr;
+    gap: 0.25rem;
+  }
+}
+
 .enrollments-page {
   width: min(100% - 2rem, 960px);
   min-height: 100vh;

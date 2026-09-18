@@ -112,3 +112,21 @@ exports.getCourse = async (req, res) => {
 
   return res.json({ success: true, data: rows[0] });
 };
+
+exports.deleteCourse = async (req, res) => {
+  const id = Number.parseInt(req.params.id, 10);
+  if (!Number.isInteger(id) || id < 1) {
+    return res
+      .status(400)
+      .json({ success: false, message: "Invalid course ID" });
+  }
+
+  const [result] = await pool.execute("DELETE FROM courses WHERE id = ?", [id]);
+  if (result.affectedRows === 0) {
+    return res
+      .status(404)
+      .json({ success: false, message: "Course not found" });
+  }
+
+  return res.json({ success: true, message: "Course deleted successfully" });
+};

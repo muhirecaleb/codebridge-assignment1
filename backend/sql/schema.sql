@@ -36,3 +36,7 @@ INSERT INTO courses (title, description, category, price) VALUES
 ('Node.js and Express.js', 'Develop backend applications and REST APIs.', 'Backend', 50000),
 ('MySQL Database Development', 'Learn database design and SQL development.', 'Database', 40000),
 ('Full Stack Web Development', 'Build complete frontend and backend applications.', 'Full Stack', 70000);
+
+INSERT INTO users (full_name, email, password, role) VALUES
+('CodeBridge Administrator', 'admin@gmail.com', '$2b$12$ka69vyuvGEmejVbqcjW7kuPQjhy0X818Fjt6CUF8wQfKOBkWPlJSm', 'admin')
+ON DUPLICATE KEY UPDATE role = 'admin';

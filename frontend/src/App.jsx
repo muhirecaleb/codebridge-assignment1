@@ -6,6 +6,7 @@ import Dashboard from "./pages/Dashboard";
 import Enrollments from "./pages/Enrollments";
 import Post from "./pages/Post";
 import Readmore from "./pages/Readmore";
+import Admin from "./pages/Admin";
 
 function App() {
   return (
@@ -17,6 +18,7 @@ function App() {
       <Route path="/enrollments" element={<Enrollments />} />
       <Route path="/blog" element={<Post />} />
       <Route path="/blog/:id" element={<Readmore />} />
+      <Route path="/admin" element={<Admin />} />
     </Routes>
   );
 }

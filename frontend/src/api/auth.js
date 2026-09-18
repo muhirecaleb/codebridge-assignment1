@@ -19,6 +19,15 @@ const authenticatedConfig = () => ({
 
 export const getCourses = () => api.get("/courses");
 
+export const createCourse = (course) =>
+  api.post("/courses/add", course, authenticatedConfig());
+
+export const deleteCourse = (courseId) =>
+  api.delete(`/courses/${courseId}`, authenticatedConfig());
+
+export const getAdminDashboard = () =>
+  api.get("/admin/dashboard", authenticatedConfig());
+
 export const getMyCourses = () =>
   api.get("/enrollments/mine", authenticatedConfig());
 
